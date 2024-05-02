@@ -34,6 +34,7 @@ const start = async () => {
     })
 
     app.get("/chats", (req, res) => {
+      console.log(123);
       Chats.find().then(result => {
         res.json(result);
       })
