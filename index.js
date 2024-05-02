@@ -8,7 +8,7 @@ const Messages = require("./models/Messages");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const io = require('socket.io')(3000, {
+const io = require('socket.io')(3002, {
   cors: {
     origin: ["http://localhost:5173", "http://localhost:5174", "https://your-render-app.onrender.com"]
   }
