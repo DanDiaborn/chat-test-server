@@ -4,18 +4,18 @@ const mongoose = require("mongoose");
 
 const Chats = require("./models/Chats");
 const Messages = require("./models/Messages");
-// const { Server } = require("socket.io");
 
-const io = require('socket.io')(3000, {
+const app = express();
+const PORT = process.env.PORT || 3001;
+
+
+const io = require('socket.io')(process.env.PORT || 3000, {
   cors: {
-    origin: ["http://localhost:5173", "http://localhost:5174"]
+    origin: ["http://localhost:5173", "http://localhost:5174", "https://your-render-app.onrender.com"]
   }
 });
 
 
-const app = express();
-// const io = new Server(server);
-const PORT = process.env.PORT || 3001;
 
 const messages = [
   { id: 1, author: 'user1', text: 'User first message', type: 'User' },
