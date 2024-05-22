@@ -13,7 +13,7 @@ const server = http.createServer(app); // Create an HTTP server using Express
 
 const io = require('socket.io')(server, { // Attach Socket.io to the HTTP server
   cors: {
-    origin: ["http://localhost:5173", "http://localhost:5174", "https://your-render-app.onrender.com", "https://chat-operator-mu.vercel.app", "https://chat-user-gules.vercel.app"]
+    origin: ["http://localhost:5173", "http://localhost:5174", "https://your-render-app.onrender.com", "https://chat-operator-mu.vercel.app", "http://127.0.0.1:8000", "okuoku.ru", "https://chat-user-gules.vercel.app"]
   }
 });
 
@@ -28,17 +28,6 @@ const start = async () => {
     app.use(cors());
     app.use(express.json());
     await mongoose.connect("mongodb+srv://DanSher:tziO4kvuG0lQIvoN@cluster0.c9ughq4.mongodb.net/".concat("test-chat"));
-
-    app.get("/", (req, res) => {
-      res.json(messages);
-    });
-
-    app.get("/chats", (req, res) => {
-      console.log(123);
-      Chats.find().then(result => {
-        res.json(result);
-      });
-    });
 
     io.on('connection', (socket) => {
       console.log('User connected', socket.id);
