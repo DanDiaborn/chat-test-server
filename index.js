@@ -13,7 +13,7 @@ const server = http.createServer(app); // Create an HTTP server using Express
 
 const io = require('socket.io')(server, { // Attach Socket.io to the HTTP server
   cors: {
-    origin: ["http://localhost:5173", "http://localhost:5174", "https://your-render-app.onrender.com", "https://chat-operator-mu.vercel.app", "http://127.0.0.1:8000", "okuoku.ru", "https://chat-user-gules.vercel.app"]
+    origin: ["http://localhost:5173", "http://localhost:5174", "https://your-render-app.onrender.com", "https://chat-operator-mu.vercel.app", "http://127.0.0.1:8000", "https://okuoku.ru", "https://okuoku.ru/dashboard/chat", "https://chat-user-gules.vercel.app"]
   }
 });
 
